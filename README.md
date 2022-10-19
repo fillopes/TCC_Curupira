@@ -1,2 +1,2 @@
 # TCC_Curupira
-TCC de Engenharia de COmputação.
+TCC de Engenharia de Computação.
