@@ -16,18 +16,19 @@ for name, value in options:
         directory = value
 
 
-output = subprocess.check_output(["sslscan", "--no-colour", host])
-outputd = output.decode()
+sslscan_output = subprocess.check_output(["sslscan", "--no-colour", host])
+sslscan_outputd = sslscan_output.decode()
 #print(outputd)
-match = re.findall(r'SSLv2 +enabled', outputd,flags=re.I|re.M)
+match = re.findall(r'SSLv2 +enabled', sslscan_outputd,flags=re.I|re.M)
 if match != []:
     print ("Problema com SSLv2 ativado")
-match = re.findall(r'SSLv3 +enabled', outputd,flags=re.I|re.M)
+match = re.findall(r'SSLv3 +enabled', sslscan_outputd,flags=re.I|re.M)
 if match != []:
     print ("Problema com SSLv3 ativado")
-match = re.findall(r'TLSv1\.0 +enabled', outputd,flags=re.I|re.M)
+match = re.findall(r'TLSv1\.0 +enabled', sslscan_outputd,flags=re.I|re.M)
 if match != []:
     print ("Problema com TLSv1.0 ativado")
-match = re.findall(r'TLSv1\.1 +enabled', outputd,flags=re.I|re.M)
+match = re.findall(r'TLSv1\.1 +enabled', sslscan_outputd,flags=re.I|re.M)
 if match != []:
     print ("Problema com TLSv1.1 ativado")
+
